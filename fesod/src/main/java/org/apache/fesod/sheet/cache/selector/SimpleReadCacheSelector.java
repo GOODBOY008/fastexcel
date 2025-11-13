@@ -114,10 +114,8 @@ public class SimpleReadCacheSelector implements ReadCacheSelector {
 
         // In order to be compatible with the code
         // If the user set up `maxCacheActivateSize`, then continue using it
-        if (maxCacheActivateSize == null) {
-            if (maxCacheActivateBatchCount == null) {
-                maxCacheActivateBatchCount = DEFAULT_MAX_EHCACHE_ACTIVATE_BATCH_COUNT;
-            }
+        if (maxCacheActivateBatchCount == null) {
+            maxCacheActivateBatchCount = DEFAULT_MAX_EHCACHE_ACTIVATE_BATCH_COUNT;
         }
         return new Ehcache(maxCacheActivateSize, maxCacheActivateBatchCount);
     }
