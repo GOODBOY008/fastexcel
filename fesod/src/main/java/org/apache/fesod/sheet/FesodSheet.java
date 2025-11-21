@@ -30,7 +30,67 @@ import org.apache.fesod.sheet.write.builder.ExcelWriterSheetBuilder;
 import org.apache.fesod.sheet.write.builder.ExcelWriterTableBuilder;
 
 /**
- * Core classes of the Fesod spreadsheet processor
+ * Core factory class providing static methods for creating Excel readers and writers.
+ *
+ * <p>This class serves as the primary entry point for the Fesod library, offering a fluent API
+ * for both reading and writing Excel files. It provides a unified interface to simplify Excel
+ * operations through the builder pattern.
+ *
+ * <h3>Key Features</h3>
+ * <ul>
+ *   <li>Supports multiple input/output sources: File, String path, InputStream, OutputStream</li>
+ *   <li>Provides builder pattern for flexible configuration</li>
+ *   <li>Supports annotation-driven mapping via {@code @ExcelProperty}</li>
+ *   <li>Handles both .xls (Excel 97-2003) and .xlsx (Excel 2007+) formats</li>
+ *   <li>Enables stream-based processing for memory efficiency</li>
+ * </ul>
+ *
+ * <h3>Reading Examples</h3>
+ * <pre>{@code
+ * // Simple read with listener
+ * FesodSheet.read("demo.xlsx", DemoData.class, new DemoDataListener())
+ *     .sheet()
+ *     .doRead();
+ *
+ * // Advanced read with custom configuration
+ * try (ExcelReader excelReader = FesodSheet.read(file)
+ *         .headRowNumber(1)
+ *         .ignoreEmptyRow(true)
+ *         .build()) {
+ *     ReadSheet readSheet = FesodSheet.readSheet(0).build();
+ *     excelReader.read(readSheet);
+ * }
+ * }</pre>
+ *
+ * <h3>Writing Examples</h3>
+ * <pre>{@code
+ * // Simple write
+ * FesodSheet.write("output.xlsx", DemoData.class)
+ *     .sheet("Sheet1")
+ *     .doWrite(dataList);
+ *
+ * // Advanced write with custom configuration
+ * try (ExcelWriter excelWriter = FesodSheet.write(outputStream)
+ *         .build()) {
+ *     WriteSheet writeSheet = FesodSheet.writerSheet(0, "Template").build();
+ *     excelWriter.write(dataList, writeSheet);
+ * }
+ * }</pre>
+ *
+ * <h3>Deprecated Aliases</h3>
+ * <p>The following classes are deprecated aliases that extend FesodSheet:
+ * <ul>
+ *   <li>{@link EasyExcel} - Legacy alias from the EasyExcel branding</li>
+ *   <li>{@link FastExcel} - Legacy short alias from the FastExcel branding</li>
+ *   <li>{@link FastExcelFactory} - Legacy factory alias from the FastExcel branding</li>
+ * </ul>
+ * All new code should use {@code FesodSheet} directly.
+ *
+ * @see ExcelReader
+ * @see ExcelWriter
+ * @see org.apache.fesod.sheet.read.builder.ExcelReaderBuilder
+ * @see org.apache.fesod.sheet.write.builder.ExcelWriterBuilder
+ * @since 1.0.0
  */
 public class FesodSheet {
 
