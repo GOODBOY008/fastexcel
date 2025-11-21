@@ -20,11 +20,50 @@
 package org.apache.fesod.sheet;
 
 /**
- * An alias class for {@link FesodSheet}.
- * This class is deprecated; use {@link FesodSheet} instead.
- * <p>
- * This class will be removed in future versions.
- * </p>
+ * Legacy alias for {@link FesodSheet}.
+ *
+ * <p><strong>DEPRECATED:</strong> This class has been deprecated as part of the project's transition
+ * to the Apache Fesod branding. Users should migrate to {@link FesodSheet} for all new development.
+ *
+ * <h3>Migration Guide</h3>
+ * <p>Replace all occurrences of {@code EasyExcel} with {@code FesodSheet} in your codebase:
+ *
+ * <table border="1">
+ *   <caption>Migration Examples</caption>
+ *   <tr>
+ *     <th>Old Code (Deprecated)</th>
+ *     <th>New Code (Recommended)</th>
+ *   </tr>
+ *   <tr>
+ *     <td>{@code EasyExcel.read(file, DemoData.class, listener)}</td>
+ *     <td>{@code FesodSheet.read(file, DemoData.class, listener)}</td>
+ *   </tr>
+ *   <tr>
+ *     <td>{@code EasyExcel.write(file, DemoData.class)}</td>
+ *     <td>{@code FesodSheet.write(file, DemoData.class)}</td>
+ *   </tr>
+ *   <tr>
+ *     <td>{@code EasyExcel.readSheet(0)}</td>
+ *     <td>{@code FesodSheet.readSheet(0)}</td>
+ *   </tr>
+ *   <tr>
+ *     <td>{@code EasyExcel.writerSheet("Sheet1")}</td>
+ *     <td>{@code FesodSheet.writerSheet("Sheet1")}</td>
+ *   </tr>
+ * </table>
+ *
+ * <h3>Why Deprecated?</h3>
+ * <p>This class was originally named "EasyExcel" but has been superseded by "FesodSheet"
+ * to align with Apache Fesod's official branding and naming conventions. The functionality
+ * remains identical; only the class name has changed.
+ *
+ * <h3>Removal Timeline</h3>
+ * <p>This class is marked for removal in a future major version. All functionality is
+ * available in {@link FesodSheet}.
+ *
+ * @deprecated Since version 1.0.0. Use {@link FesodSheet} instead.
+ *             This class will be removed in a future major release.
+ * @see FesodSheet
  */
 @Deprecated
 public class EasyExcel extends FesodSheet {}
