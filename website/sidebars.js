@@ -103,7 +103,7 @@ const sidebars = {
             type: 'category',
             label: 'migration',
             items: [
-                'migration/from-easyexcel-fastexcel'
+                'migration/from-fastexcel'
             ]
         }
     ]
