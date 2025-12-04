@@ -32,7 +32,6 @@ import org.apache.fesod.sheet.enums.WriteTemplateAnalysisCellTypeEnum;
  **/
 @Getter
 @Setter
-@EqualsAndHashCode
 public class AnalysisCell {
     private int columnIndex;
     private int rowIndex;
