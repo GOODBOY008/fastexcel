@@ -27,12 +27,12 @@ package org.apache.fesod.sheet;
  *
  * <h3>Migration Guide</h3>
  * <p>Replace all occurrences of {@code FastExcelFactory} with {@code FesodSheet} in your codebase:
- *¡
+ *
  * <table border="1">
  *   <caption>Migration Examples</caption>
  *   <tr>
  *     <th>Old Code (Deprecated)</th>
- *     <th>New Code (Recommended)</th>¡
+ *     <th>New Code (Recommended)</th>
  *   </tr>
  *   <tr>
  *     <td>{@code FastExcelFactory.read(inputStream, DemoData.class, listener)}</td>
